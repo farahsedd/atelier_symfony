@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {%  for message in app.session.flashbag.get('danger') %}
+        <div  style="background-color: #ff726f;">{{ message }}</div>
+    {% endfor%}
+    {%  for message in app.session.flashbag.get('success') %}
+        <div  style="background-color: #b7df89;">{{ message }}</div>
+    {% endfor%}
+    {%  for message in app.session.flashbag.get('info') %}
+        <div style="background-color: #e2e2e2;">{{ message }}</div>
+    {% endfor%}
+    <h3>To-do List:</h3>
+    <ol>
+        {% for key,task in app.session.get('todos') %}
+        <li style="border-color: #6E6E6E ; border-radius: 80%;margin: 10px 0 5px 30px"> {{ key }} : {{ task }}</li>
+        {% endfor%}
+    </ol>
+</body>
+</html>
